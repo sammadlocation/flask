@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='record.css')}}">
+    <!-- our project just needs Font Awesome Solid + Brands -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- bootstrap 5 cdn -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Enregistrer audio à partir de microphone</title>
+</head>
+<body>
+    <div class="contenair-record">
+        <div class="record">
+            <h1>Veuillez enregistrer l'audio</h1>
+           
+            <div class="d-flex bd-highlight">
+                <div class="p-2 w-100 bd-highlight">
+                    <button id="recordBtn"><i class="fa-solid fa-microphone fa-5x"></i></button>
+                    
+                    <div class="control-audio">
+                        <div class="display"> </div>
+                        <button id="remove" onclick="removeAudio()"><i class="fa-solid fa-trash fa-1x" style="color:#00235B;"></i></button>
+                    </div>
+                </div>
+                <div class="mt-auto p-2 bd-highlight">
+                    <button type="button" class="btn btn-primary btn-lg" id="sendBtn" onclick="sendAudio()" disabled>Transcrire</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-transcribe">
+            <div class="conten">
+                <button type="button" id="copyButton1" onclick="copier(1)"><i class="fa-solid fa-copy" style="color: #fff;"></i> Copier</button>
+               <textarea name="text-transcribe" class="text-transcribe1" id="texte" cols="30" rows="10"readonly ></textarea>
+            </div>
+        </div>
+        <div id="status" style="display: none;"></div>
+       
+        
+
+    </div>
+
+    <!-- fichier js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{url_for('static',filename='recorder.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
